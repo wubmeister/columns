@@ -41,14 +41,14 @@ def add_width_selector(width, selector):
     width_selectors[key].append(selector)
 
 def spans(prefix, base = 12):
-    for num in range(2,base):
+    for num in range(1,base):
         width = 100.0 * num / base
         add_width_selector(width, ".cols-%s%d > .col-%d" % (prefix,base,num))
         if prefix != "":
             add_width_selector(width, ".cols-%d > .col-%s%d" % (base,prefix,num))
 
 def basespans(prefix):
-    for num in range(2,12):
+    for num in range(1,12):
         width = 100.0 * num / 12
         add_width_selector(width, ".cols > .col-%s%d" % (prefix,num))
 
