@@ -19,7 +19,7 @@ You can just use the compiled `columns.css` out of the box. If, however, you nee
 | dividerColor | "#EBEBEB"     | Color of the dividers                                        |
 | minify       | True          | True to minify the output CSS, False to produce readable CSS |
 
-Then run the `columns.py` to generate the CSS:
+Then run `columns.py` to generate the CSS:
 
 ```sh
 python3 columns.py
@@ -31,6 +31,8 @@ Once you have the `columns.css` that you want, you can include it in your HTML o
 <link rel="stylesheet" type="text/css" href="columns.css" />
 ```
 
+or
+
 ```css
 @import url("columns.css");
 ```
@@ -39,7 +41,7 @@ Once you have the `columns.css` that you want, you can include it in your HTML o
 
 Check out the `examples.html` for the most common uses.
 
-Columns need a columns container, with class `cols`. The columns should be direct descendants of that container and have the class `col`.
+Columns need a container, with class `cols`. The columns should be direct descendants of that container and have the class `col`.
 
 ```html
 <div class="cols">
@@ -54,7 +56,7 @@ Basically, there are three ways to divide your columns:
 
 ### Evenly divided columns
 
-By using the class `cols-auto` on your container, all the columns will be evenly divided. This means that if you have two columns, they both will be 50% wide, if you have three columns, they both will be 33.33% wide and so on.
+By using the class `cols-auto` on your container, all the columns will be evenly divided. This means that if you have two columns, they both will be 50% wide, if you have three columns, they all will be 33.33% wide and so on.
 
 ```html
 <div class="cols cols-auto">
