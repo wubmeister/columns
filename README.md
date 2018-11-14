@@ -19,6 +19,12 @@ You can just use the compiled `columns.css` out of the box. If, however, you nee
 | dividerColor | "#EBEBEB"     | Color of the dividers                                        |
 | minify       | True          | True to minify the output CSS, False to produce readable CSS |
 
+Then run the `columns.py` to generate the CSS:
+
+```sh
+python3 columns.py
+```
+
 Once you have the `columns.css` that you want, you can include it in your HTML or CSS like you normally do:
 
 ```html
@@ -140,7 +146,7 @@ You can divide your columns with a nice border. This combines well with (but is 
 
 ## Responsive
 
-Almost all class can have breakpoint specifiers, to specify from which breakpoint on up the effects of that class should be visible.
+Almost all classes can have breakpoint specifiers, to specify from which breakpoint on up the effects of that class should be visible.
 
 If the original class name is `cols-*`, then you can use `cols-sm-*` to use this for smablets and up, `cols-md-*` for tablets and up, `cols-lg-*` for desktops and up and `cols-xl-*` for wide screens. The same works for `col-*`.
 
