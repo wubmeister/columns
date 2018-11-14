@@ -1,0 +1,10 @@
+breakpointSm = 576
+breakpointMd = 768
+breakpointLg = 992
+breakpointXl = 1200
+padding = 10
+paddingMore = 20
+paddingMost = 40
+dividerSize = 1
+dividerColor = "#EBEBEB"
+minify = True

@@ -1,0 +1,140 @@
+@breakpointSm: 576px;
+@breakpointMd: 768px;
+@breakpointLg: 992px;
+@breakpointXl: 1200px;
+@padding: 10px;
+@paddingMore: 20px;
+@paddingMost: 40px;
+@dividerSize: 1px;
+@dividerColor: #EBEBEB;
+
+/*
+.cols
+.cols-X
+.cols-BP-X
+
+.col
+.col-X
+.col-BP-X
+
+.cols-pad
+.cols-pad-more
+.cols-pad-most
+.cols-BP-pad
+.cols-BP-pad-more
+.cols-BP-pad-most
+
+.cols-divide
+.cols-BP-divide
+
+.cols-ALIGN
+.cols-BP-ALIGN
+
+.cols-*, .cols-sm-* {
+
+}
+
+@media screen and (min-width: @breakpointSm) {
+    .cols-sm-* {
+
+    }
+}
+
+@media screen and (min-width: @breakpointMd) {
+    .cols-md-* {
+
+    }
+}
+*/
+
+.span(@prefix, @base, @num: 1) when (@num <= @base) {
+    & when (@prefix = e('')) {
+        .cols-@{prefix}@{base} > .col-@{num} {
+            width: percentage(@num * 1 / @base);
+        }
+    }
+    & when not(@prefix = e('')) {
+        .cols-@{prefix}@{base} > .col-@{num}, .cols-@{base} > .col-@{prefix}@{num} {
+            width: percentage(@num * 1 / @base);
+        }
+    }
+    .span(@prefix, @base, @num + 1);
+}
+
+.basespan(@prefix, @num: 1) when (@num <= 12) {
+    .cols > .col-@{prefix}@{num} {
+        width: percentage(@num * 1 / 12);
+    }
+
+    .basespan(@prefix, @num + 1);
+}
+
+.columns(@prefix, @num: 2) when (@num <= 12) {
+    .cols-@{prefix}@{num} > .col {
+        width: percentage(1 / @num);
+    }
+    .basespan(@prefix);
+    .span(@prefix, @num);
+    .columns(@prefix, @num + 1);
+    .cols-@{prefix}pad {
+        margin: 0 (-@padding);
+        > .col {
+            padding: 0 @padding;
+        }
+    }
+    .cols-@{prefix}pad-more {
+        margin: 0 (-@paddingMore);
+        > .col {
+            padding: 0 @paddingMore;
+        }
+    }
+    .cols-@{prefix}pad-most {
+        margin: 0 (-@paddingMost);
+        > .col {
+            padding: 0 @paddingMost;
+        }
+    }
+    .cols-@{prefix}divide > .col + .col {
+        border-left: @dividerSize solid @dividerColor;
+    }
+    .cols-@{prefix}left {
+        justify-content: flex-start;
+    }
+    .cols-@{prefix}center {
+        justify-content: center;
+    }
+    .cols-@{prefix}right {
+        justify-content: flex-end;
+    }
+    .cols-@{prefix}justify {
+        justify-content: space-between;
+    }
+}
+
+.cols {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+.cols-auto {
+    justify-content: space-evenly;
+}
+.cols > .col {
+    width: 100%;
+    padding: 0;
+}
+
+.columns(e(''));
+
+@media screen and (min-width: @breakpointSm) {
+    .columns(sm-);
+}
+@media screen and (min-width: @breakpointMd) {
+    .columns(md-);
+}
+@media screen and (min-width: @breakpointLg) {
+    .columns(lg-);
+}
+@media screen and (min-width: @breakpointXl) {
+    .columns(xl-);
+}
