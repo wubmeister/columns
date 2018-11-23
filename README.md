@@ -146,6 +146,13 @@ You can divide your columns with a nice border. This combines well with (but is 
 </div>
 ```
 
+## Alignment
+
+It is possible to align columns inside the container, by using the `cols-left`, `cols-right`, `cols-center` and `cols-justify` classes on the `cols` container.
+
+You can also align the text inside a column by using the `col-left`, `col-right` and `col-center` classes on the column
+
+
 ## Responsive
 
 Almost all classes can have breakpoint specifiers, to specify from which breakpoint on up the effects of that class should be visible.
@@ -163,3 +170,33 @@ And this code will render a column to span 4 base grid columns on small devices 
 ```html
 <div class="col col-4 cols-lg-2">...</div>
 ```
+
+## All the classes
+
+Below you can find a table with all the class names. When you see `[1-12]` in the class name, it means that there comes a number bewtween 1 and 12. When you see `[sm,md,lg,xl]`, it that there comes a responsive modifier: `sm`, `md`, `lg` or `xl`.
+
+### For column containers
+
+| Class name      | Responsive class name         | What it does                                                                         |
+| --------------- | ----------------------------- | ------------------------------------------------------------------------------------ |
+| `cols`          |                               | Defines a column container. Column containers MUST all have this class name.         |
+| `cols-auto`     | `cols-[sm,md,lg,xl]-auto`     | Tells the browser to size the columns evenly                                         |
+| `cols-[2-12]`   | `cols-[sm,md,lg,xl]-[2-12]`   | Specifies the number of columns or the base grid.                                    |
+| `cols-pad`      | `cols-[sm,md,lg,xl]-pad`      | Pads the columns slightly.                                                           |
+| `cols-pad-more` | `cols-[sm,md,lg,xl]-pad-more` | Pads the columns some more.                                                          |
+| `cols-pad-most` | `cols-[sm,md,lg,xl]-pad-most` | Pads the columns even more.                                                          |
+| `cols-divide`   | `cols-[sm,md,lg,xl]-divide`   | Divides the columns with a line                                                      |
+| `cols-left`     | `cols-[sm,md,lg,xl]-left`     | Pushes all the columns to the left side of the container. This is default behaviour. |
+| `cols-center`   | `cols-[sm,md,lg,xl]-center`   | Places all the columns in the horizontal middle of the container.                    |
+| `cols-right`    | `cols-[sm,md,lg,xl]-right`    | Pushes all the columns to the right side of the container.                           |
+| `cols-justify`  | `cols-[sm,md,lg,xl]-justify`  | Spreads the columns over the column so that the first one is all the way on the left and the last one is all the way on the right |
+
+### For columns
+
+| Class name   | Responsive class name      | What it does                                                 |
+| ------------ | -------------------------- | ------------------------------------------------------------ |
+| `col`        |                            | Defines a column. Columns MUST all have this class name.     |
+| `col-[2-12]` | `col-[sm,md,lg,xl]-[2-12]` | Specifies how many base gris columns this column should span |
+| `col-left`   | `col-[sm,md,lg,xl]-left`   | Left aligns the text in the column                           |
+| `col-center` | `col-[sm,md,lg,xl]-center` | Centers the text in the column                               |
+| `col-right`  | `col-[sm,md,lg,xl]-right`  | Right aligns the text in the column                          |
