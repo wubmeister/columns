@@ -41,22 +41,24 @@ def add_width_selector(width, selector):
     width_selectors[key].append(selector)
 
 def spans(prefix, base = 12):
-    for num in range(1,base):
+    for num in range(1,base+1):
         width = 100.0 * num / base
         add_width_selector(width, ".cols-%s%d > .col-%d" % (prefix,base,num))
         if prefix != "":
             add_width_selector(width, ".cols-%d > .col-%s%d" % (base,prefix,num))
 
-def basespans(prefix):
-    for num in range(1,12):
+def basespans(prefix = ""):
+    for num in range(1,13):
         width = 100.0 * num / 12
         add_width_selector(width, ".cols > .col-%s%d" % (prefix,num))
 
 def columns(prefix = ""):
-    basespans(prefix)
-    for num in range(2,12):
+    for num in range(2,13):
         width = 100.0 / num
         add_width_selector(width, ".cols-%s%d > .col" % (prefix,num))
+
+def columnspans(prefix = ""):
+    for num in range(2,13):
         spans(prefix, num)
 
 def padding(indent, prefix, postfix, padding):
@@ -68,9 +70,6 @@ def padding(indent, prefix, postfix, padding):
     block_end(indent)
 
 def breakpoint(prefix = "", min_width = 0):
-    width_selectors.clear()
-
-    columns(prefix)
 
     indent = ""
     joiner = ", " if minify == False else ","
@@ -78,6 +77,25 @@ def breakpoint(prefix = "", min_width = 0):
     if prefix:
         block_start("@media screen and (min-width: %dpx)" % (min_width))
         indent = "  " if minify == False else ""
+
+    width_selectors.clear()
+    basespans(prefix)
+
+    for width in width_selectors:
+        block_start(joiner.join(width_selectors[width]), indent)
+        write_prop("width", "%s%%" % width)
+        block_end(indent)
+
+    width_selectors.clear()
+    columns(prefix)
+
+    for width in width_selectors:
+        block_start(joiner.join(width_selectors[width]), indent)
+        write_prop("width", "%s%%" % width)
+        block_end(indent)
+
+    width_selectors.clear()
+    columnspans(prefix)
 
     for width in width_selectors:
         block_start(joiner.join(width_selectors[width]), indent)
@@ -91,6 +109,9 @@ def breakpoint(prefix = "", min_width = 0):
     block_start(".cols-%sdivide > .col + .col" % (prefix), indent)
     write_prop("border-left", "%dpx solid %s" % (colconfig.dividerSize,colconfig.dividerColor), indent)
     block_end(indent)
+    block_start(".cols-%svcenter" % (prefix))
+    write_prop("align-items", "center", indent)
+    block_end(indent)
     block_start(".cols-%sleft" % (prefix))
     write_prop("justify-content", "flex-start", indent)
     block_end(indent)
@@ -102,6 +123,15 @@ def breakpoint(prefix = "", min_width = 0):
     block_end(indent)
     block_start(".cols-%sjustify" % (prefix))
     write_prop("justify-content", "space-between", indent)
+    block_end(indent)
+    block_start(".col-%sleft" % (prefix))
+    write_prop("text-align", "left", indent)
+    block_end(indent)
+    block_start(".col-%scenter" % (prefix))
+    write_prop("text-align", "center", indent)
+    block_end(indent)
+    block_start(".col-%sright" % (prefix))
+    write_prop("text-align", "right", indent)
     block_end(indent)
 
     if prefix:
