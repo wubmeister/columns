@@ -4,7 +4,7 @@ So, every site needs them, there is no real semantic way to use them responsivel
 
 ## Installation
 
-You can just use the compiled `columns.css` out of the box. If, however, you need to do some customization, you can edit the variables in `colconfig.py` to accomodate your needs.
+You can just use the compiled `columns.css` out of the box. If, however, you need to do some customization, you can edit the variables in `colconfig.py` to accomodate your needs. Just copy colconfig.example.py to colconfig.py and start editing.
 
 | Option       | Default value | Description                                                  |
 | ------------ | ------------- | ------------------------------------------------------------ |
