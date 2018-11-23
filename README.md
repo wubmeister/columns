@@ -177,26 +177,26 @@ Below you can find a table with all the class names. When you see `[1-12]` in th
 
 ### For column containers
 
-| Class name      | Responsive class name         | What it does                                                                         |
-| --------------- | ----------------------------- | ------------------------------------------------------------------------------------ |
-| `cols`          |                               | Defines a column container. Column containers MUST all have this class name.         |
-| `cols-auto`     | `cols-[sm,md,lg,xl]-auto`     | Tells the browser to size the columns evenly                                         |
-| `cols-[2-12]`   | `cols-[sm,md,lg,xl]-[2-12]`   | Specifies the number of columns or the base grid.                                    |
-| `cols-pad`      | `cols-[sm,md,lg,xl]-pad`      | Pads the columns slightly.                                                           |
-| `cols-pad-more` | `cols-[sm,md,lg,xl]-pad-more` | Pads the columns some more.                                                          |
-| `cols-pad-most` | `cols-[sm,md,lg,xl]-pad-most` | Pads the columns even more.                                                          |
-| `cols-divide`   | `cols-[sm,md,lg,xl]-divide`   | Divides the columns with a line                                                      |
-| `cols-left`     | `cols-[sm,md,lg,xl]-left`     | Pushes all the columns to the left side of the container. This is default behaviour. |
-| `cols-center`   | `cols-[sm,md,lg,xl]-center`   | Places all the columns in the horizontal middle of the container.                    |
-| `cols-right`    | `cols-[sm,md,lg,xl]-right`    | Pushes all the columns to the right side of the container.                           |
-| `cols-justify`  | `cols-[sm,md,lg,xl]-justify`  | Spreads the columns over the column so that the first one is all the way on the left and the last one is all the way on the right |
+| Class name                   | Responsive class name                      | What it does                                                                         |
+| ---------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------ |
+| <nobr>`cols`</nobr>          |                                            | Defines a column container. Column containers MUST all have this class name.         |
+| <nobr>`cols-auto`</nobr>     | <nobr>`cols-[sm,md,lg,xl]-auto`</nobr>     | Tells the browser to size the columns evenly                                         |
+| <nobr>`cols-[2-12]`</nobr>   | <nobr>`cols-[sm,md,lg,xl]-[2-12]`</nobr>   | Specifies the number of columns or the base grid.                                    |
+| <nobr>`cols-pad`</nobr>      | <nobr>`cols-[sm,md,lg,xl]-pad`</nobr>      | Pads the columns slightly.                                                           |
+| <nobr>`cols-pad-more`</nobr> | <nobr>`cols-[sm,md,lg,xl]-pad-more`</nobr> | Pads the columns some more.                                                          |
+| <nobr>`cols-pad-most`</nobr> | <nobr>`cols-[sm,md,lg,xl]-pad-most`</nobr> | Pads the columns even more.                                                          |
+| <nobr>`cols-divide`</nobr>   | <nobr>`cols-[sm,md,lg,xl]-divide`</nobr>   | Divides the columns with a line                                                      |
+| <nobr>`cols-left`</nobr>     | <nobr>`cols-[sm,md,lg,xl]-left`</nobr>     | Pushes all the columns to the left side of the container. This is default behaviour. |
+| <nobr>`cols-center`</nobr>   | <nobr>`cols-[sm,md,lg,xl]-center`</nobr>   | Places all the columns in the horizontal middle of the container.                    |
+| <nobr>`cols-right`</nobr>    | <nobr>`cols-[sm,md,lg,xl]-right`</nobr>    | Pushes all the columns to the right side of the container.                           |
+| <nobr>`cols-justify`</nobr>  | <nobr>`cols-[sm,md,lg,xl]-justify`</nobr>  | Spreads the columns over the column so that the first one is all the way on the left and the last one is all the way on the right |
 
 ### For columns
 
-| Class name   | Responsive class name      | What it does                                                 |
-| ------------ | -------------------------- | ------------------------------------------------------------ |
-| `col`        |                            | Defines a column. Columns MUST all have this class name.     |
-| `col-[2-12]` | `col-[sm,md,lg,xl]-[2-12]` | Specifies how many base gris columns this column should span |
-| `col-left`   | `col-[sm,md,lg,xl]-left`   | Left aligns the text in the column                           |
-| `col-center` | `col-[sm,md,lg,xl]-center` | Centers the text in the column                               |
-| `col-right`  | `col-[sm,md,lg,xl]-right`  | Right aligns the text in the column                          |
+| Class name                | Responsive class name                   | What it does                                                 |
+| ------------------------- | --------------------------------------- | ------------------------------------------------------------ |
+| <nobr>`col`</nobr>        |                                         | Defines a column. Columns MUST all have this class name.     |
+| <nobr>`col-[2-12]`</nobr> | <nobr>`col-[sm,md,lg,xl]-[2-12]`</nobr> | Specifies how many base gris columns this column should span |
+| <nobr>`col-left`</nobr>   | <nobr>`col-[sm,md,lg,xl]-left`</nobr>   | Left aligns the text in the column                           |
+| <nobr>`col-center`</nobr> | <nobr>`col-[sm,md,lg,xl]-center`</nobr> | Centers the text in the column                               |
+| <nobr>`col-right`</nobr>  | <nobr>`col-[sm,md,lg,xl]-right`</nobr>  | Right aligns the text in the column                          |
