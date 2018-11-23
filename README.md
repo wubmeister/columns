@@ -86,9 +86,9 @@ Assuming a base 'grid' of 12 columns, you can specify how many of those 12 colum
 
 ```html
 <div class="cols">
-    <div class="col-3">This is a 25% wide column</div>
-    <div class="col-3">This is a 25% wide column</div>
-    <div class="col-6">This is a 50% wide column</div>
+    <div class="col col-3">This is a 25% wide column</div>
+    <div class="col col-3">This is a 25% wide column</div>
+    <div class="col col-6">This is a 50% wide column</div>
 </div>
 ```
 
@@ -96,9 +96,9 @@ To take this one step further, you can set the base 'grid' by specifying the num
 
 ```html
 <div class="cols-6">
-    <div class="col-2">This is a 33.33% wide column</div>
+    <div class="col col-2">This is a 33.33% wide column</div>
     <div class="col">This is a 16.67% wide column</div>
-    <div class="col-3">This is a 50% wide column</div>
+    <div class="col col-3">This is a 50% wide column</div>
 </div>
 ```
 
@@ -159,7 +159,7 @@ Almost all classes can have breakpoint specifiers, to specify from which breakpo
 
 If the original class name is `cols-*`, then you can use `cols-sm-*` to use this for smablets and up, `cols-md-*` for tablets and up, `cols-lg-*` for desktops and up and `cols-xl-*` for wide screens. The same works for `col-*`.
 
-For example, this seetup will render 2 columns on small devices and 4 columns on tablets, desktops and wide screens:
+For example, this setup will render 2 columns on small devices and 4 columns on tablets, desktops and wide screens:
 
 ```html
 <div class="cols cols-2 cols-md-4">...</div>
