@@ -134,6 +134,21 @@ Most padding:
 </div>
 ```
 
+## Grid
+
+A grid with padding has - besides horizontal padding - also vertical padding. Use the class `cols-grid` on the container to get the grid effect.
+
+The following code produces a 2x2 padded grid:
+
+```html
+<div class="cols cols-grid cols-2 cols-pad">
+    <div class="col">...</div>
+    <div class="col">...</div>
+    <div class="col">...</div>
+    <div class="col">...</div>
+</div>
+```
+
 ## Dividing
 
 You can divide your columns with a nice border. This combines well with (but is not restricted to) padded columns. To use this, just add the `cols-divide` class to your container.

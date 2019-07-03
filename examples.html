@@ -20,6 +20,66 @@
             .spacer {
                 height: 30px;
             }
+            .example {
+                position: relative;
+            }
+            .toggle-code {
+                position: absolute;
+                right: -64px;
+                top: 0;
+
+                width: 32px;
+                height: 32px;
+                background-color: #f4f4f4;
+                border-radius: 50%;
+                border: 2px solid #ebebeb;
+                background: #f4f4f4 center center / 18px 18px no-repeat url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCAxNjQgMTY0IiB3aWR0aD0iMTY0IiBoZWlnaHQ9IjE2NCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHlsZT0ic3Ryb2tlOiAjMDAwOyBzdHJva2Utd2lkdGg6IDJweDsgc3Ryb2tlLWxpbmVqb2luOiByb3VuZDsiPgogICAgPHBhdGggZD0iTTIgODJsNDAgLTM4bDggOGwtMzAgMzBsMzAgMzBsLTggOCIgLz4KICAgIDxwYXRoIGQ9Ik01NiAxNDguNzVsNDAtMTM3LjI1bDEyIDMuNzVsLTQwIDEzNy4yNXoiIC8+CiAgICA8cGF0aCBkPSJNMTIyIDEyMmwtOCAtOGwzMCAtMzBsLTMwIC0zMGw4IC04bDQwIDM4eiIgLz4KPC9zdmc+");
+                text-indent: 101%;
+                white-space: nowrap;
+                overflow: hidden;
+
+                transition: background-color .2s;
+                cursor: pointer;
+            }
+            .toggle-code:hover {
+                background-color: #ebebeb;
+            }
+            code {
+                display: block;
+                white-space: pre;
+                padding: 0 1em;
+                background-color: #f4f4f4;
+                border-radius: 8px;
+                border: 2px solid #ebebeb;
+                position: absolute;
+                top: calc(100% + 1rem);
+                left: 0;
+                width: 100%;
+                box-sizing: border-box;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity .2s;
+                box-shadow: 0 3px 24px rgba(0, 0, 0, 0.24);
+            }
+            .example.show-code {
+                z-index: 1;
+            }
+            .example.show-code code {
+                opacity: 1;
+                pointer-events: auto;
+            }
+            #dimmer {
+                position: fixed;
+                top: 0; right: 0; bottom: 0; left: 0;
+                background-color: rgba(0, 0, 0, 0.6);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity .2s;
+            }
+            #dimmer.visible {
+                opacity: 1;
+                pointer-events: auto;
+            }
         </style>
         <link rel="stylesheet" href="columns.css" />
     </head>
@@ -28,108 +88,329 @@
         <div class="container">
             <h2>Evenly divided columns</h2>
 
-            <div class="cols cols-auto">
-                <div class="col">
-                    <div class="contentbox">Column 1</div>
+            <div class="example">
+                <div class="cols cols-auto">
+                    <div class="col">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 3</div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="contentbox">Column 2</div>
-                </div>
-                <div class="col">
-                    <div class="contentbox">Column 3</div>
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-auto"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
 
             <h2>Padded columns</h2>
 
-            <div class="cols cols-auto cols-pad">
-                <div class="col">
-                    <div class="contentbox">Column 1</div>
+            <div class="example">
+                <div class="cols cols-auto cols-pad">
+                    <div class="col">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 3</div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="contentbox">Column 2</div>
-                </div>
-                <div class="col">
-                    <div class="contentbox">Column 3</div>
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-auto cols-pad"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
 
             <div class="spacer"></div>
 
-            <div class="cols cols-auto cols-pad-more">
-                <div class="col">
-                    <div class="contentbox">Column 1</div>
+            <div class="example">
+                <div class="cols cols-auto cols-pad-more">
+                    <div class="col">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 3</div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="contentbox">Column 2</div>
-                </div>
-                <div class="col">
-                    <div class="contentbox">Column 3</div>
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-auto cols-pad-more"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
 
             <div class="spacer"></div>
 
-            <div class="cols cols-auto cols-pad-most">
-                <div class="col">
-                    <div class="contentbox">Column 1</div>
+            <div class="example">
+                <div class="cols cols-auto cols-pad-most">
+                    <div class="col">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 3</div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="contentbox">Column 2</div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-auto cols-pad-most"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
+            </div>
+
+            <h2>Grid</h2>
+
+            <div class="example">
+                <div class="cols cols-grid cols-4 cols-pad">
+                    <div class="col">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 3</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 4</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 5</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 6</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 7</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 8</div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="contentbox">Column 3</div>
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-grid cols-4 cols-pad"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 4&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 5&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 6&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 7&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 8&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
 
             <h2>Responsive columns</h2>
 
-            <div class="cols cols-2 cols-md-4">
-                <div class="col">
-                    <div class="contentbox">Column 1</div>
+            <div class="example">
+                <div class="cols cols-2 cols-md-4">
+                    <div class="col">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 3</div>
+                    </div>
+                    <div class="col">
+                        <div class="contentbox">Column 4</div>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="contentbox">Column 2</div>
-                </div>
-                <div class="col">
-                    <div class="contentbox">Column 3</div>
-                </div>
-                <div class="col">
-                    <div class="contentbox">Column 4</div>
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-2 cols-md-4"&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        &lt;div class="contentbox"&gt;Column 4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
 
             <h2>Spanning columns</h2>
 
-            <div class="cols">
-                <div class="col col-6 col-md-3">
-                    <div class="contentbox">Column 1</div>
+            <div class="example">
+                <div class="cols">
+                    <div class="col col-6 col-md-3">
+                        <div class="contentbox">Column 1</div>
+                    </div>
+                    <div class="col col-6 col-md-3">
+                        <div class="contentbox">Column 2</div>
+                    </div>
+                    <div class="col col-12 col-md-6">
+                        <div class="contentbox">Column 3</div>
+                    </div>
                 </div>
-                <div class="col col-6 col-md-3">
-                    <div class="contentbox">Column 2</div>
-                </div>
-                <div class="col col-12 col-md-6">
-                    <div class="contentbox">Column 3</div>
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols"&gt;
+    &lt;div class="col col-6 col-md-3"&gt;
+        &lt;div class="contentbox"&gt;Column 1&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col col-6 col-md-3"&gt;
+        &lt;div class="contentbox"&gt;Column 2&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="col col-12 col-md-6"&gt;
+        &lt;div class="contentbox"&gt;Column 3&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
 
             <h2>Divided columns</h2>
 
-            <div class="cols cols-auto cols-divide cols-pad">
-                <div class="col">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+            <div class="example">
+                <div class="cols cols-auto cols-divide cols-pad">
+                    <div class="col">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+                    </div>
+                    <div class="col">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+                    </div>
+                    <div class="col">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+                    </div>
+                    <div class="col">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+                    </div>
                 </div>
-                <div class="col">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
-                </div>
-                <div class="col">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
-                </div>
-                <div class="col">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
-                </div>
+
+                <a class="toggle-code">Code</a>
+
+                <code>
+&lt;div class="cols cols-auto cols-divide cols-pad"&gt;
+    &lt;div class="col"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+    &lt;/div&gt;
+    &lt;div class="col"&gt;
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor pharetra purus.
+    &lt;/div&gt;
+&lt;/div&gt;
+                </code>
             </div>
         </div>
+
+        <div id="dimmer"></div>
+
+        <script>
+            window.addEventListener("click", function(event){
+                if (event.target && event.target.nodeType == Node.ELEMENT_NODE) {
+                    if (event.target.classList.contains("toggle-code")) {
+                        let toggler = event.target;
+                        let example = toggler;
+                        while (example && !example.classList.contains("example")) {
+                            example = example.parentElement;
+                        }
+                        if (example) {
+                            example.classList.toggle("show-code");
+                            document.getElementById("dimmer").classList.toggle("visible");
+                        }
+                    }
+                    else if (event.target.id == "dimmer") {
+                        let example = document.querySelector(".example.show-code");
+                        if (example) {
+                            example.classList.toggle("show-code");
+                            document.getElementById("dimmer").classList.toggle("visible");
+                        }
+                    }
+                }
+            });
+        </script>
 
     </body>
 </html>

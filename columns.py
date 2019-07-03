@@ -65,8 +65,14 @@ def padding(indent, prefix, postfix, padding):
     block_start(".cols-%spad%s" % (prefix,postfix), indent)
     write_prop("margin", "0 -%dpx" % (padding), indent)
     block_end(indent)
+    block_start(".cols-%spad%s.cols-grid" % (prefix,postfix), indent)
+    write_prop("margin", "-%dpx" % (padding), indent)
+    block_end(indent)
     block_start(".cols-%spad%s > .col" % (prefix,postfix), indent)
     write_prop("padding", "0 %dpx" % (padding), indent)
+    block_end(indent)
+    block_start(".cols-%spad%s.cols-grid > .col" % (prefix,postfix), indent)
+    write_prop("padding", "%dpx" % (padding), indent)
     block_end(indent)
 
 def breakpoint(prefix = "", min_width = 0):
